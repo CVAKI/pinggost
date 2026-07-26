@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scaryRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/warningText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="ANOMALY DETECTED"
+        android:textColor="#FF1744"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"/>
+
+    <!-- fully opaque black view we toggle visible/invisible to fake a "screen off" flash -->
+    <View
+        android:id="@+id/blackoutView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="invisible"/>
+
+</FrameLayout>

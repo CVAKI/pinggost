@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "367930982257",
+    "project_id": "pinggost",
+    "storage_bucket": "pinggost.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367930982257:android:966f895256a4e56f4fc0d0",
+        "android_client_info": {
+          "package_name": "com.cvakigod.pinggost"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN267giYSQ6Y6C7PKfdcXlQBo4iGL563k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

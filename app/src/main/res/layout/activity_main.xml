@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SCANNING..."
+            android:textColor="#00FF41"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:fontFamily="monospace"/>
+
+        <TextView
+            android:id="@+id/pairingStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Remote link paired ID: ..."
+            android:textColor="#00A82F"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="2dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1F3D22"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <!-- BODY: candle rack (left) + radar (right) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <!-- CANDLE RACK: candlestick bars, left side -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:orientation="vertical"
+            android:background="@drawable/panel_border"
+            android:padding="6dp">
+
+            <com.cvakigod.pinggost.view.CandleBarView
+                android:id="@+id/barAlpha"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="4dp"/>
+
+            <com.cvakigod.pinggost.view.CandleBarView
+                android:id="@+id/barBeta"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="4dp"/>
+
+            <com.cvakigod.pinggost.view.CandleBarView
+                android:id="@+id/barGamma"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <!-- RADAR, HUD-framed -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.9"
+            android:background="@drawable/panel_border"
+            android:padding="4dp">
+
+            <com.cvakigod.pinggost.view.RadarView
+                android:id="@+id/radarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#0A0A0A"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:text="TRK://ACTIVE"
+                android:textColor="#00FF41"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:alpha="0.7"/>
+
+            <!-- corner brackets for HUD look -->
+            <View android:layout_width="18dp" android:layout_height="2dp" android:background="#00FF41" android:layout_gravity="top|start" android:layout_margin="4dp"/>
+            <View android:layout_width="2dp" android:layout_height="18dp" android:background="#00FF41" android:layout_gravity="top|start" android:layout_margin="4dp"/>
+
+            <View android:layout_width="18dp" android:layout_height="2dp" android:background="#00FF41" android:layout_gravity="bottom|end" android:layout_margin="4dp"/>
+            <View android:layout_width="2dp" android:layout_height="18dp" android:background="#00FF41" android:layout_gravity="bottom|end" android:layout_margin="4dp"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- STACK GRAPH FOOTER -->
+    <com.cvakigod.pinggost.view.StackGraphView
+        android:id="@+id/stackGraph"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="12dp"/>
+
+    <!-- LEGEND -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#00E5FF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  ALPHA=MAGNETIC   "
+            android:textColor="#889988"
+            android:textSize="10sp"
+            android:fontFamily="monospace"/>
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#B388FF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  BETA=RF/WIFI   "
+            android:textColor="#889988"
+            android:textSize="10sp"
+            android:fontFamily="monospace"/>
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#FFD54F"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  GAMMA=SILENCE"
+            android:textColor="#889988"
+            android:textSize="10sp"
+            android:fontFamily="monospace"/>
+    </LinearLayout>
+
+</LinearLayout>
